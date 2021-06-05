@@ -56,5 +56,25 @@
     public Vaccine Vaccine { get; set; }
     [Parameter]
     public RenderFragment ChildContent { get; set; }
+    private Vaccine _vaccine;
+    private Vaccine _Vaccine
+    {
+        get => _vaccine;
+        set
+        {
+            if ( _vaccine != Vaccine)
+            {
+                _vaccine = Vaccine;
+             //   UpdateList();
+            }
+        }
+    }
+    protected override void OnParametersSet()
+    {
+        if (_Vaccine != Vaccine)
+        {
+            _Vaccine = Vaccine;
+        }
+    }
 
 }
