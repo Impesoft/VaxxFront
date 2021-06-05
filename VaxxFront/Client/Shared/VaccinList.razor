@@ -46,7 +46,7 @@
     public int SelectedVaccine;
     public int VaccineIndex;
     private List<Vaccine> Vaccines;
-    protected override async Task OnInitializedAsync() => Vaccines = await Http.GetFromJsonAsync<List<Vaccine>>("https://localhost:44317/api/Vaccine/");
+    protected override async Task OnInitializedAsync() => Vaccines = await Http.GetFromJsonAsync<List<Vaccine>>("https://vaxxapi.azurewebsites.net/api/Vaccine");
     private async Task onSelect(Vaccine vaccine){
         SelectedVaccine = vaccine.Id;
         VaccineIndex = SelectedVaccine - 1;

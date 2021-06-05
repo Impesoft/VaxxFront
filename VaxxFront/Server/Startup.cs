@@ -9,8 +9,7 @@ namespace VaccineApp
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
     using Microsoft.IdentityModel.Tokens;
-
-    //using Microsoft.OpenApi.Models;
+    using Microsoft.OpenApi.Models;
     using Repositories;
     using Services;
     using Services.Interfaces;
@@ -32,15 +31,16 @@ namespace VaccineApp
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                //app.UseSwagger();
-                //app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "VaccineApp v1"));
+                app.UseSwagger();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "VaccineApp v1"));
             }
 
             app.UseHttpsRedirection();
 
             app.UseRouting();
             app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200"));
-            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:5000"));
+            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://vaxxfront.azurewebsites.net:5000"));
+            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://vaxxapi.azurewebsites.net/"));
 
             app.UseAuthentication();
             app.UseAuthorization();
@@ -65,7 +65,7 @@ namespace VaccineApp
                 };
             });
 
-            //services.AddSwaggerGen(c => c.SwaggerDoc("v1", new OpenApiInfo { Title = "VaccineApp", Version = "v1" }));
+            services.AddSwaggerGen(c => c.SwaggerDoc("v1", new OpenApiInfo { Title = "VaccineApp", Version = "v1" }));
 
             services.AddDbContext<DatabaseContext>(
                 options => options.UseSqlServer(Configuration.GetConnectionString("OnlineConnectionString")));
