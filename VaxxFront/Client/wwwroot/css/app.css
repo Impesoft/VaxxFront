@@ -1,0 +1,209 @@
+﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
+
+/* You can add global styles to this file, and also import other style files */
+:root {
+    --main-bg: #09161e;
+    --main-light-blue: #2CD8DB;
+    --main-dark-blue: #267B9A;
+    --main-accent: #b51163;
+    --main-accent-light: #d70c67;
+}
+
+html,
+body {
+    height: 100%;
+    /* background-color: var(--main-bg); */
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+#head,
+#left-arm,
+#chest,
+#right-arm,
+#legs {
+    outline: none;
+}
+
+.login-titles {
+    color: var(--main-dark-blue);
+}
+
+.navbar {
+    background-color: var( --main-bg);
+    font-size: large;
+}
+
+.bg-light {
+    background-color: var(--main-bg-light);
+}
+
+.list-group-item.active {
+    background-color: var(--main-dark-blue) !important;
+    border-color: var(--main-dark-blue);
+    color: white;
+}
+
+.list-group-item:hover {
+    background-color: var(--main-light-blue);
+    border-color: var(--main-dark-blue);
+    color: white;
+}
+
+.btn-primary {
+    background-color: var(--main-light-blue);
+    border-color: var(--main-light-blue);
+}
+
+    .btn-primary:hover {
+        background-color: var(--main-dark-blue);
+    }
+
+.btn-secondary {
+    background-color: var(--main-accent-light);
+    border-color: var(--main-accent-light);
+}
+
+    .btn-secondary:hover {
+        background-color: var(--main-accent);
+    }
+
+.vaccines {
+    background-color: white;
+    /* border: solid var(--main-dark-blue); */
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.nav-link {
+    color: white;
+}
+
+    .nav-link:hover {
+        color: var(--main-light-blue)
+    }
+
+.navbar-brand {
+    color: var(--main-light-blue);
+    font-size: 2.5em;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+    .navbar-brand:hover {
+        color: var(--main-dark-blue);
+    }
+
+.btn-danger {
+    background-color: var(--main-accent-light);
+    border-color: var(--main-accent-light);
+}
+
+    .btn-danger:hover {
+        background-color: var(--main-accent);
+    }
+
+legend {
+    font-size: medium;
+}
+
+.bodycontainer {
+    height: 70vh;
+    max-height: 70vh;
+}
+
+.vaccinContainer {
+    max-height: 71vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.card {
+    background-color: rgba(255,255,255, .9);
+}
+
+.human-body {
+    width: 207px;
+    position: relative;
+    padding-top: 240px;
+    height: 260px;
+    display: block;
+    margin: 100px auto;
+}
+
+    .human-body svg:hover {
+        cursor: pointer;
+    }
+
+        .human-body svg:hover path {
+            fill: var(--main-accent-light);
+        }
+
+    .human-body svg {
+        position: absolute;
+        left: 50%;
+        fill: var(--main-light-blue);
+    }
+
+        .human-body svg#head {
+            margin-left: -22px;
+            top: -90px;
+        }
+
+        .human-body svg#left-arm {
+            margin-left: -140px;
+            top: 23px;
+        }
+
+        .human-body svg#right-arm {
+            margin-left: 49px;
+            top: 23px;
+        }
+
+        .human-body svg#chest {
+            margin-left: -43.5px;
+            top: 48px;
+        }
+
+        .human-body svg#legs {
+            margin-left: -43.5px;
+            top: 225px;
+        }
+
+#area {
+    display: block;
+    width: 100%;
+    clear: both;
+    padding: 10px;
+    text-align: center;
+    font-size: 25px;
+    font-family: Courier New;
+    color: #a5a5a5;
+}
+
+    #area #data {
+        color: black;
+    }
+
+button {
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+}
+
+.sticky {
+    top: 250px;
+    position: sticky;
+    right: 50px;
+}
+
+.human-body svg.Selected {
+    fill: var(--main-accent);
+}
