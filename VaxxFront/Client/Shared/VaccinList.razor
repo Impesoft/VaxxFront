@@ -16,7 +16,7 @@
         <table class="list-group mx-3 mb-2 text-left">
             @foreach(Vaccine vaccine in Vaccines) {
                 <tr
-                    class="vaccines list-group-item m-1 @((vaccine.Id == SelectedVaccine) ? "active" : "")"
+                    class="vaccines list-group-item m-1 @((vaccine.Id == VaccineIndex) ? "active" : "")"
                     @onclick="() => onSelect(vaccine)"
 
 
@@ -43,13 +43,13 @@
     public string VaccineBodyPart { get; set; } = "All";
     [Parameter]
     public RenderFragment ChildContent { get; set; }
-    public int SelectedVaccine;
+    public Vaccine SelectedVaccine;
     public int VaccineIndex;
     private List<Vaccine> Vaccines;
     protected override async Task OnInitializedAsync() => Vaccines = await Http.GetFromJsonAsync<List<Vaccine>>("https://vaxxapi.azurewebsites.net/api/Vaccine");
-    private async Task onSelect(Vaccine vaccine){
-        SelectedVaccine = vaccine.Id;
-        VaccineIndex = SelectedVaccine - 1;
+    private void onSelect(Vaccine vaccine){
+        SelectedVaccine = vaccine;
+        VaccineIndex =  Vaccines.FindIndex(vaccine => vaccine.Id == SelectedVaccine.Id);
         Console.WriteLine("Selected Vaccine="+SelectedVaccine);
     }
     private string _vaccinBodyPart;
